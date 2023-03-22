@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>にゃんこ大戦争攻略</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="signed-out">
+    <header class="header-1">
+        <div class="header_inner">
+            <div class="header-1_mypage" id="header-mypage">
+                <a th:href="@{/login}" rel="nofollow">Login</a>
+            </div>
+        </div>
+    </header>
+    <div class="gameHeader">
+        <div class="gameHeader_inner">
+            <div class="gameHeader_game">
+                <a class="gameHeader_game_inner" href="">
+                    <div class="gameHeader_gamelogo">
+                        <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
+                    </div>
+                    <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
+                </a>
+            </div>
+            <div class="gameHeader_search">
+                <form class="g-search" action="" accept-charset="UTF-8" method="get">
+                    <input type="text" name="q" id="q" class="g-input g-input-text g-input-border g-search_input" placeholder="Search">
+                    <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="top_container">
+        <div class="top-left top-shadow"></div>
+    </div>
+    <div class="gameEyecatch">
+        <img th:src="@{images/gameEyecatch.png}" width="1000" height="250">
+    </div>
+    <div class="gameNavText gameNavText-top">
+        <div class="gameNavText_inner gameNavText_inner-top">
+            <ul class="gameNavText_list gameNavText_list-grow">
+                <li class="gameNavText_list_item">
+                    <a th:href="@{/admin/character/legend}"class="gameNavText_list_item_link">伝説レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a th:href="@{/admin/character/ultra}" class="gameNavText_list_item_link">超激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a th:href="@{/admin/character/super}" class="gameNavText_list_item_link">激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a th:href="@{/admin/character/rare}" class="gameNavText_list_item_link">レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a th:href="@{/admin/character/ex}" class="gameNavText_list_item_link">EX</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a th:href="@{/admin/character/normal}" class="gameNavText_list_item_link">基本キャラ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+</html>
