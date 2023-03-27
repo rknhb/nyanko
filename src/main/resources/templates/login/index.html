@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form th:action="@{/admin}" method="post">
+        <div class="login_form_top">
+            <h1>ログイン画面</h1>
+        </div>
+        <div class="login_form_btm">
+            <input type="text" name="username">user_name<br/>
+            <input type="password" name="password">password
+            </br>
+        </div>
+        <input type="submit" value="Login">ログイン</input>
+    </form>
+</body>
+</html>
