@@ -3,18 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>新規追加画面</title>
+    <title th:text="${title}" />
 </head>
 <body>
-    <header>
-        <h1>新規追加画面</h1>
-    </header>
+	<h1>新規追加画面</h1>
+	<p th:text="${message}" />
 
-    <form method="POST" action="add">
-        <label for="character_name">
-            キャラクター名
-        </label>
-        <input type="text">
+    <form method="POST" action="/admin/character/create">
+        キャラクター名<input type="text" name="name" th:value="${name}" />
         <br>
         <label for="cost">
             コスト
@@ -51,7 +47,7 @@
         </label>
         <input type="text">
         <br>
-        <button type="submit">新規作成</button>
+        <input type="submit" value="新規追加" />
 
     </form>
     
