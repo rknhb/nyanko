@@ -9,46 +9,32 @@
 	<h1>新規追加画面</h1>
 	<p th:text="${message}" />
 
-    <form method="POST" action="/admin/character/create">
+    <form method="POST" action="/admin/character/add">
         キャラクター名<input type="text" name="name" th:value="${name}" />
         <br>
-        <label for="cost">
-            コスト
-        </label>
-        <input type="text">
+        コスト<input type="text" name="cost" th:value="${cost}" />
         <br>
-        <label for="rank">
-            ランク
-        </label>
-        <input type="text">
+        ランク
+        <select name="rare">
+			<option value="伝説レア">伝説レア</option>
+			<option value="超激レア">超激レア</option>
+			<option value="激レア">激レア</option>
+			<option value="レア">レア</option>
+			<option value="基本">基本</option>
+			<option value="EX">EX</option>
+		</select>
         <br>
-        <label for="comment1">
-            解説1
-        </label>
-        <input type="text">
+        解説1<input type="text" name="commentary1" th:value="${commentary1}" />
         <br>
-        <label for="comment2">
-            解説2
-        </label>
-        <input type="text">
+        解説2<input type="text" name="commentary2" th:value="${commentary2}" />
         <br>
-        <label for="attack">
-            攻撃頻度
-        </label>
-        <input type="text">
+        攻撃頻度<input type="text" name="attack_frequency" th:value="${attack_frequency}" />
         <br>
-        <label for="reproduction">
-            再生産
-        </label>
-        <input type="text">
+        再生産<input type="text" name="reproduction" th:value="${reproduction}" />
         <br>
-        <label for="knockback">
-            ノックバック数
-        </label>
-        <input type="text">
+        ノックバック数<input type="text" name="knockback" th:value="${knockback}" />
         <br>
-        <input type="submit" value="新規追加" />
-
+        <input type="submit" value="submit" />
     </form>
     
 </body>

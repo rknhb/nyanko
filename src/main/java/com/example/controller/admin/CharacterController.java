@@ -4,10 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.entity.CharactersEntity;
 import com.example.repositories.CharactersRepository;
@@ -39,22 +39,40 @@ public class CharacterController {
 	}
 	
 	@RequestMapping(value = "/admin/character/create", method = RequestMethod.GET)
-	public String newPage(Model model) {
-		model.addAttribute("title", "new");
-		model.addAttribute("message", "送信前");
-		return "admin/character/create";
-	}
-	
-	@RequestMapping(value = "/admin/character/create", method = RequestMethod.POST)
-	public String createPage(@RequestParam("name")String name, Model model) {
+	public String create(Model model) {
 		model.addAttribute("title", "create");
-		model.addAttribute("message", name);
-		model.addAttribute("name", name);
+		model.addAttribute("message", "新規追加");
 		return "admin/character/create";
 	}
 	
+	/**
+	 * 新規作成画面
+	 */
 	@PostMapping("/admin/character/add")
-	public String add() {
+	public String add(@ModelAttribute CharactersEntity form) {
+		form.getName();
+		form.getCost();
+		form.getRare();
+		form.getCommentary1();
+		form.getCommentary2();
+		form.getAttack_frequency();
+		form.getReproduction();
+		form.getKnockback();
+		System.out.println(form.getName());
+		System.out.println(form.getCost());
+		
+		//charactersRepository.save(form);
 		return "redirect:/admin";
 	}
+	
+//	@PostMapping("/admin/character/add")
+//	public String add(@RequestParam("name") String name, @RequestParam("cost") int cost, @RequestParam("rare") String rare, @RequestParam("commentary1") String commentary1) {
+//		
+//		System.out.println("name = " + name);
+//		System.out.println("cost = " + cost);
+//		System.out.println("rare = " + rare);
+//		System.out.println("commentary1 = " + commentary1);
+//		
+//		return "redirect:/admin";
+//	}
 }
