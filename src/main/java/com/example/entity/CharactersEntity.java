@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -12,8 +13,8 @@ import javax.persistence.Table;
 public class CharactersEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column
+	@SequenceGenerator(name = "characters_id_seq")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@Column(nullable = false)
@@ -40,7 +41,7 @@ public class CharactersEntity {
 	@Column(nullable = false)
 	private int knockback;
 	
-	@Column(nullable = false)
+	@Column(nullable = true)
 	private String image;
 
 	public long getId() {
