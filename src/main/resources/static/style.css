@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body, div, span, h1, h2, p, a, img, i, ul, li, form, header, time {
+html, body, div, span, h1, h2, p, a, img, i, ul, li, form, table, tbody, tr, td, header, time {
     margin: 0;
     padding: 0;
     border: 0;
@@ -11,22 +11,18 @@ html, body, div, span, h1, h2, p, a, img, i, ul, li, form, header, time {
     vertical-align: baseline;
 }
 
-/*css:50*/
 html {
     font-size: 62.5%;
 }
 
-/*css:50*/
 body {
     font-size: 1.4rem;
 }
 
-/*css:50*/
 body, button, input {
     font-family: "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans CJK JP", "Original Yu Gothic", YuGothic, "Yu Gothic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Sans Emoji", -apple-system, BlinkMacSystemFont, system-ui;
 }
 
-/*css:50*/
 body {
     background-color: #696969;
     word-break: break-all;
@@ -524,4 +520,61 @@ ul {
     background-color: #313131;
     border-bottom: 4px solid #ff7f50;
     color: #90a4ae;
+}
+
+.a-table {
+    font-size: 1.15rem;
+    line-height: 2.6rem;
+    margin: 0 0 15px;
+    border-bottom: 1px solid #d1d8e2;
+    width: 100%;
+    table-layout: auto;
+    box-shadow: rgba(0,0,0,0.05) 0 1px 1px 0;
+    border-collapse: collapse;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.a-table th.center, .a-table td.center {
+    text-align: center;
+}
+
+.a-table th, .a-table td {
+    border: 1px #d1d8e2 solid;
+    padding: 8px 6px 7px;
+}
+
+td {
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+.a-link {
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: #ff4500;
+    font-weight: bolder;
+}
+
+.a-table th.center .a-img, .a-table td.center .a-img {
+    margin: 3px auto;
+}
+
+.lazy.lazy-non-square.lazy-loaded {
+    height: auto !important;
+    padding-bottom: 0 !important;
+}
+
+.a-table th .a-img, .a-table td .a-img {
+    margin: 0;
+}
+
+.a-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto 15px;
 }

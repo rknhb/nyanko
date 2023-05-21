@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS public.characters
     attack_frequency real NOT NULL,
     reproduction real NOT NULL,
     knockback integer NOT NULL,
-    image character varying(20) COLLATE pg_catalog."default",
+    image character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT characters_pkey PRIMARY KEY (id),
     CONSTRAINT characters_name_key UNIQUE (name),
     CONSTRAINT characters_id_check CHECK (id > 0)
