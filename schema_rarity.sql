@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS public.rarity
 (
     id integer NOT NULL DEFAULT nextval('rarity_id_seq'::regclass),
     name character varying(20) COLLATE pg_catalog."default" NOT NULL,
+    urlpattern character varying(20) COLLATE pg_catalog."default",
     CONSTRAINT rarity_pkey PRIMARY KEY (id)
 )
 

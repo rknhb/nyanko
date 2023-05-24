@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,8 +29,10 @@ public class CharacterController {
 		return "admin/character/detail";
 	}
 	
-	@GetMapping("/admin/character/edit")
-	public String edit() {
+	@GetMapping("/admin/character/edit/{id}")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		CharactersEntity character = charactersRepository.findById(id).get();
+		model.addAttribute("character", character);
 		return "admin/character/edit";
 	}
 	
