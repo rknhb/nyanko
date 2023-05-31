@@ -29,18 +29,6 @@ public class CharacterController {
 		return "admin/character/detail";
 	}
 	
-	@GetMapping("/admin/character/edit/{id}")
-	public String edit(@PathVariable("id") Long id, Model model) {
-		CharactersEntity character = charactersRepository.findById(id).get();
-		model.addAttribute("character", character);
-		return "admin/character/edit";
-	}
-	
-	@PostMapping("/admin/character/update")
-	public String update() {
-		return "redirect:/character/detail";
-	}
-	
 	@RequestMapping(value = "/admin/character/create", method = RequestMethod.GET)
 	public String create(Model model) {
 		model.addAttribute("title", "create");
@@ -48,9 +36,6 @@ public class CharacterController {
 		return "admin/character/create";
 	}
 	
-	/**
-	 * 新規作成画面
-	 */
 	@PostMapping("/admin/character/add")
 	public String add(@ModelAttribute CharactersEntity form) {
 		form.getName();
@@ -72,5 +57,17 @@ public class CharacterController {
 		
 		charactersRepository.save(form);
 		return "redirect:/admin";
+	}
+	
+	@GetMapping("/admin/character/edit/{id}")
+	public String edit(@PathVariable("id") Long id, Model model) {
+		CharactersEntity character = charactersRepository.findById(id).get();
+		model.addAttribute("character", character);
+		return "admin/character/edit";
+	}
+	
+	@PostMapping("/admin/character/update")
+	public String update() {
+		return "redirect:/character/detail";
 	}
 }

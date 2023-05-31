@@ -10,29 +10,29 @@
 	<p th:text="${message}" />
 
     <form method="POST" action="/admin/character/add">
-        キャラクター名<input type="text" name="name" th:value="${name}" />
+        キャラクター名<input type="text" name="name">
         <br>
-        コスト<input type="text" name="cost" th:value="${cost}" />
+        コスト<input type="text" name="cost">
         <br>
         ランク
         <select name="rare">
-			<option value="伝説レア">伝説レア</option>
-			<option value="超激レア">超激レア</option>
-			<option value="激レア">激レア</option>
-			<option value="レア">レア</option>
-			<option value="基本">基本</option>
+			<option value="legend">伝説レア</option>
+			<option value="ultra">超激レア</option>
+			<option value="super">激レア</option>
+			<option value="rare">レア</option>
 			<option value="EX">EX</option>
+			<option value="normal">基本</option>
 		</select>
         <br>
         解説1<textarea name="commentary1"></textarea>
         <br>
         解説2<textarea name="commentary2"></textarea>
         <br>
-        攻撃頻度<input type="text" name="attack_frequency" th:value="${attack_frequency}" />
+        攻撃頻度<input type="text" name="attack_frequency">
         <br>
-        再生産<input type="text" name="reproduction" th:value="${reproduction}" />
+        再生産<input type="text" name="reproduction">
         <br>
-        ノックバック数<input type="text" name="knockback" th:value="${knockback}" />
+        ノックバック数<input type="text" name="knockback">
         <br>
         <input type="submit" value="submit" />
     </form>
