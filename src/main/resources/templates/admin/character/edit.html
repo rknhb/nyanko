@@ -9,29 +9,30 @@
 	<h1>※編集画面※</h1>
 
 	<form method="POST" action="/admin/character/update">
-		キャラクター名<input type="text" name="name" th:value="${character.name}">
+		キャラクター名<input type="text" name="name" th:field="${character.name}">
 		<br>
-        コスト<input type="text" name="cost" th:value="${character.cost}">
+        コスト<input type="text" name="cost" th:field="${character.cost}">
         <br>
         ランク
-        <select name="rare" th:value="${character.rare}">
-			<option value="legend">伝説レア</option>
-			<option value="ultra">超激レア</option>
-			<option value="super">激レア</option>
-			<option value="rare">レア</option>
-			<option value="EX">EX</option>
-			<option value="normal">基本</option>
+        <select name="rare">
+			<option
+		      th:each="rarity : ${raritys}"
+		      th:value="${rarity.key}"
+		      th:text="${rarity.value}"
+		      th:selected="${rarity.key == character.rare}">
+		    </option>
 		</select>
+		<span th:text="${character.rare}"></span>
 		<br>
-        解説1<textarea name="commentary1" th:value="${character.commentary1}"></textarea>
+        解説1<textarea name="commentary1" th:field="${character.commentary1}"></textarea>
         <br>
-        解説2<textarea name="commentary2" th:value="${character.commentary2}"></textarea>
+        解説2<textarea name="commentary2" th:field="${character.commentary2}"></textarea>
         <br>
-        攻撃頻度<input type="text" name="attack_frequency" th:value="${character.attack_frequency}">
+        攻撃頻度<input type="text" name="attack_frequency" th:field="${character.attack_frequency}">
         <br>
-        再生産<input type="text" name="reproduction" th:value="${character.reproduction}"> 
+        再生産<input type="text" name="reproduction" th:field="${character.reproduction}"> 
         <br>
-        ノックバック数<input type="text" name="knockback" th:value="${character.knockback}">
+        ノックバック数<input type="text" name="knockback" th:field="${character.knockback}">
         <br>
 		
 		<button type="submit">編集</button>

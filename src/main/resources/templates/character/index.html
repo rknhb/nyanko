@@ -97,7 +97,20 @@
                     </div>
                 </div>
                 <div class="archive-style-wrapper">
-                    <h2 class="a-header-2">伝説レア一覧</h2>
+                    <h2 class="a-header-2"><span th:text="${characterRarity}"></span>一覧</h2>
+                    <table class="a-table a-table a-table" style>
+						<tbody>
+							<tr th:each="character : ${characters}">
+								<span th:text="${character.name}"></span>
+							</tr>
+						</tbody>
+					</table>
+                    
+                    
+                    
+                    
+                    
+                    
                     <table class="a-table a-table a-table" style>
                         <tbody>
                             <tr>

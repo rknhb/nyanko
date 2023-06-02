@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body, div, span, h1, h2, p, a, img, i, ul, li, form, table, tbody, tr, td, header, time {
+html, body, div, span, h1, h2, h3, p, a, img, b, i, ul, li, form, table, tbody, tr, th, td, header, time {
     margin: 0;
     padding: 0;
     border: 0;
@@ -31,7 +31,10 @@ body {
     margin: 0;
 }
 
-/*css:50*/
+b {
+    font-weight: bold;
+}
+
 .header-1 {
     background-color: #808080;
     width: 100%;
@@ -42,7 +45,6 @@ body {
     border-top: 5px solid #ff7f50;
 }
 
-/*css:58*/
 .header_inner {
     margin: 0 auto;
     width: 1000px;
@@ -508,20 +510,6 @@ ul {
     background-color: #a9a9a9;
 }
 
-/*application...b8c7.css:58*/
-.a-header-2 {
-    font-size: 1.6rem;
-    line-height: 2.6rem;
-    display: block;
-    margin: 30px 0 20px;
-    padding: 10px 10px;
-    font-weight: bold;
-    border-radius: 0 10px 0 0;
-    background-color: #313131;
-    border-bottom: 4px solid #ff7f50;
-    color: #90a4ae;
-}
-
 .a-table {
     font-size: 1.15rem;
     line-height: 2.6rem;
@@ -547,7 +535,7 @@ table {
     padding: 8px 6px 7px;
 }
 
-td {
+th, td {
     font-weight: normal;
     vertical-align: middle;
 }
@@ -577,4 +565,61 @@ td {
     max-width: 100%;
     height: auto;
     margin: 0 auto 15px;
+}
+
+.a-paragraph {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+    position: relative;
+    margin: 0 0 12px;
+    color: #313131;
+}
+
+.a-bold {
+    font-weight: bold;
+}
+
+.a-table th {
+    background-color: #c0c0c0;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ad-wrapper {
+    width: 100%;
+    text-align: center;
+}
+
+.a-header-2 {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+    display: block;
+    margin: 30px 0 20px;
+    padding: 10px 10px;
+    font-weight: bold;
+    border-radius: 0 10px 0 0;
+    background-color: #313131;
+    border-bottom: 4px solid #ff7f50;
+    color: #90a4ae;
+}
+
+.a-header-3 {
+    font-size: 1.5rem;
+    line-height: 2.1rem;
+    display: block;
+    margin: 20px 0;
+    padding: 5px;
+    font-weight: bold;
+    color: #313131;
+    border-left: 4px solid #313131;
+    border-bottom: 2px solid #313131;
+    -o-border-image: linear-gradient(to right, #313131 0% 50%, transparent 100%);
+    border-image: linear-gradient(to right, #313131 0% 50%, transparent 100%);
+    border-image-slice: 1;
+}
+
+.a-header-4 {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    padding: 0 10px 0 20px;
 }

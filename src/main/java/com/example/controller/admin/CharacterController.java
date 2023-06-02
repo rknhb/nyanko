@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.example.entity.CharactersEntity;
+import com.example.entity.CharacterEntity;
+import com.example.entity.Rarities;
 import com.example.repositories.CharactersRepository;
 
 @Controller("admincharactercontroller")
@@ -33,11 +34,12 @@ public class CharacterController {
 	public String create(Model model) {
 		model.addAttribute("title", "create");
 		model.addAttribute("message", "新規追加");
+		model.addAttribute("raritys", Rarities.list);
 		return "admin/character/create";
 	}
 	
 	@PostMapping("/admin/character/add")
-	public String add(@ModelAttribute CharactersEntity form) {
+	public String add(@ModelAttribute CharacterEntity form) {
 		form.getName();
 		form.getCost();
 		form.getRare();
@@ -61,8 +63,10 @@ public class CharacterController {
 	
 	@GetMapping("/admin/character/edit/{id}")
 	public String edit(@PathVariable("id") Long id, Model model) {
-		CharactersEntity character = charactersRepository.findById(id).get();
+		CharacterEntity character = charactersRepository.findById(id).get();
 		model.addAttribute("character", character);
+		model.addAttribute("raritys", Rarities.list);
+		
 		return "admin/character/edit";
 	}
 	

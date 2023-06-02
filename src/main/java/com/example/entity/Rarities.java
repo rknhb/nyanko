@@ -1,11 +1,11 @@
 package com.example.entity;
 
 import java.util.Map;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-public class Rarity {
+public class Rarities {
 	
-	public static Map<String, String> list = new HashMap<>() {
+	public static Map<String, String> list = new LinkedHashMap<>() {
 		{
 			put("legend", "伝説レア");
 			put("ultra", "超激レア");
@@ -14,5 +14,5 @@ public class Rarity {
 			put("ex", "EX");
 			put("normal", "基本キャラ");
 		}
-	};		
+	};	
 }

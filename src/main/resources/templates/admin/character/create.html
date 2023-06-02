@@ -16,12 +16,11 @@
         <br>
         ランク
         <select name="rare">
-			<option value="legend">伝説レア</option>
-			<option value="ultra">超激レア</option>
-			<option value="super">激レア</option>
-			<option value="rare">レア</option>
-			<option value="EX">EX</option>
-			<option value="normal">基本</option>
+			<option
+		      th:each="rarity : ${raritys}"
+		      th:value="${rarity.key}"
+		      th:text="${rarity.value}">
+		    </option>
 		</select>
         <br>
         解説1<textarea name="commentary1"></textarea>

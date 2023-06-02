@@ -73,7 +73,7 @@
 			<tr th:each="character: ${characters}">
 				<td><a th:href="@{/admin/character/edit/{id}(id=${character.id})}">編集</a></td>
 				<td th:text="${character.name}"></td>
-				<td th:text="${character.rare}"></td>
+				<td th:text="${raritys.get(character.rare)}"></td>
 			</tr>
 		</table>
 	</div>
