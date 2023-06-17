@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
-import com.example.repositories.CharactersRepository;
+import com.example.repositories.CharacterRepository;
 
 @Controller("admincharactercontroller")
 public class CharacterController {
 	
 	@Autowired
-	private CharactersRepository charactersRepository;
+	private CharacterRepository charactersRepository;
 	
 	@GetMapping("/admin/character/{rarity}")
 	public String index() {

@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body, div, span, h1, h2, h3, p, a, img, b, i, ul, li, form, table, tbody, tr, th, td, header, time {
+html, body, div, span, h1, h2, h3, h4, p, a, img, b, i, ul, li, form, table, tbody, tr, th, td, header, time {
     margin: 0;
     padding: 0;
     border: 0;
@@ -53,7 +53,6 @@ b {
     justify-content: space-between;
 }
 
-/*application...65cb.css:50*/
 .header-1_mypage {
     display: flex;
     justify-content: center;
@@ -62,7 +61,6 @@ b {
     width: 100px;
 }
 
-/*application...65cb.css:50*/
 .header-1_mypage a {
     font-size: 1.2rem;
     line-height: 1.2rem;
@@ -510,6 +508,7 @@ ul {
     background-color: #a9a9a9;
 }
 
+/**/
 .a-table {
     font-size: 1.15rem;
     line-height: 2.6rem;
@@ -519,6 +518,18 @@ ul {
     table-layout: auto;
     box-shadow: rgba(0,0,0,0.05) 0 1px 1px 0;
     border-collapse: collapse;
+}
+
+.container {
+	font-size: 1.15rem;
+	line-height: 2.6rem;
+	margin: 0 0 15px;
+	border-bottom: 1px solid #d1d8e2;
+	width: 100%;
+	table-layout: auto;
+	box-shadow: rgba(0,0,0,0.05) 0 1px 1px 0;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
 table {
@@ -622,4 +633,12 @@ th, td {
     font-size: 1.4rem;
     line-height: 1.8rem;
     padding: 0 10px 0 20px;
+    background-image: url('checkMark.png');
+    background-position: left 0 top 2px;
+    background-repeat: no-repeat;
+    background-size: 15px 15px;
+    position: relative;
+    margin: 15px 0;
+    font-weight: bold;
+    color: #313131;
 }

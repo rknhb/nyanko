@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
-import com.example.repositories.CharactersRepository;
+import com.example.repositories.CharacterRepository;
 
 @Controller("adminhomecontroller")
 public class HomeController {
 	
 	@Autowired
-	private CharactersRepository charactersRepository;
+	private CharacterRepository charactersRepository;
 	
 	@GetMapping("/admin")
 	String index(Model model) {

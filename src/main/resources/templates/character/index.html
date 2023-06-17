@@ -98,16 +98,11 @@
                 </div>
                 <div class="archive-style-wrapper">
                     <h2 class="a-header-2"><span th:text="${characterRarity}"></span>一覧</h2>
-                    <table class="a-table a-table a-table" style>
-						<tbody>
-							<tr th:each="character : ${characters}">
-								<span th:text="${character.name}"></span>
-							</tr>
-						</tbody>
-					</table>
-                    
-                    
-                    
+                    <div class="container">
+						<div class="row row-cols-3">
+							<div class="col" th:each="rarity : ${rarities}"><span th:text="${rarity.name}"></span></div>
+						</div>
+					</div>
                     
                     
                     
@@ -116,7 +111,7 @@
                             <tr>
                                 <td class="center">
                                     <a class="a-link" href="">
-                                        <img src="character_images\Miyamoto_musashi.png" class="a-img lazy lazy-non-square lazy-loaded" alt="宮本武蔵の画像" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true">宮本武蔵
+                                        <img src="/images/character_images/Miyamoto_musashi.png" class="a-img lazy lazy-non-square lazy-loaded" alt="宮本武蔵の画像" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true">宮本武蔵
                                     </a>
                                 </td>
                                 <td class="center">
