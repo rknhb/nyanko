@@ -20,12 +20,10 @@ public class CharacterController {
 	
 	@GetMapping("/character/{rarity}")
 	public String index(@PathVariable("rarity") String rarity, Model model) {
-		List<CharacterEntity> characters = characterRepository.findAll();
 		String characterRarity = Rarities.list.get(rarity);
-		List<CharacterEntity> rarities = characterRepository.findByRare(rarity);
+		List<CharacterEntity> characters = characterRepository.findByRare(rarity);
 		model.addAttribute("characters", characters);
 		model.addAttribute("characterRarity", characterRarity);
-		model.addAttribute("rarities", rarities);
 		
 		return "character/index";
 	}

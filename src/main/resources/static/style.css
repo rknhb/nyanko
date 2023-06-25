@@ -532,20 +532,32 @@ ul {
 	border-spacing: 0;
 }
 
+.col {
+	text-align: center;
+	border: 1px #d1d8e2 solid;
+	padding: 8px 6px 7px;
+	font-weight: normal;
+	vertical-align: middle;
+}
+
+/**/
 table {
     border-collapse: collapse;
     border-spacing: 0;
 }
 
+/**/
 .a-table th.center, .a-table td.center {
     text-align: center;
 }
 
+/**/
 .a-table th, .a-table td {
     border: 1px #d1d8e2 solid;
     padding: 8px 6px 7px;
 }
 
+/**/
 th, td {
     font-weight: normal;
     vertical-align: middle;
