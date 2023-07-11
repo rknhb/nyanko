@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
-import com.example.repositories.CharacterRepository;
+import com.example.repository.CharacterRepository;
 
 @Controller("admincharactercontroller")
 public class CharacterController {

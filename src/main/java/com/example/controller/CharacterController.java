@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
-import com.example.repositories.CharacterRepository;
+import com.example.repository.CharacterRepository;
 
 @Controller("charactercontroller")
 public class CharacterController {

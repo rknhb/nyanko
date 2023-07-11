@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
-import com.example.repositories.CharacterRepository;
+import com.example.repository.CharacterRepository;
 
 @Controller("adminhomecontroller")
 public class HomeController {
