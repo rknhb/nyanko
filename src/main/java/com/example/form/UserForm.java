@@ -13,10 +13,6 @@ import lombok.Data;
 public class UserForm {
 	
 	@NotEmpty
-	@Size(max = 100)
-	private String name;
-	
-	@NotEmpty
 	@Email
 	private String email;
 	
@@ -26,6 +22,6 @@ public class UserForm {
 	
 	@NotEmpty
 	@Size(max = 20)
-	private String passwordConfiramation;
+	private String passwordConfirmation;
 
 }

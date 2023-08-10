@@ -10,5 +10,4 @@ import com.example.entity.CharacterEntity;
 @Repository
 public interface CharacterRepository extends JpaRepository<CharacterEntity, Long> {
 	List<CharacterEntity> findByRare(String rare);
-
 }

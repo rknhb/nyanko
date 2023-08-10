@@ -1,22 +1,95 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form th:action="@{/login/auth}" method="post">
-        <div class="login_form_top">
-            <h1>ログイン画面</h1>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width-device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+	    <title th:text="${'にゃんこ大戦争|Login'}">にゃんこ大戦争攻略</title>
+	    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+	    <script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
+	</head>
+	<body class="sessions-controller new-action signed-out device-pc">
+		<div th:if="${hasMessage}" class="alert alert-dismissible fade show" th:classappend="${class}" role="alert">
+			<button type="button" class="btn-close" data-bs-desmiss="alert" aria-label="Close"></button><span th:text="${message}"></span>
+		</div>
+	    <header class="header-1">
+	        <div class="header_inner">
+	            <div class="header-1_mypage" id="header-mypage">
+	                <a th:href="@{/login}" rel="nofollow">Login</a>
+	            </div>
+	        </div>
+	    </header>
+	    <div class="gameHeader">
+	        <div class="gameHeader_inner">
+	            <div class="gameHeader_game">
+	                <a class="gameHeader_game_inner" th:href="@{/}">
+	                    <div class="gameHeader_gamelogo">
+	                        <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
+	                    </div>
+	                    <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
+	                </a>
+	            </div>
+	            <div class="gameHeader_search">
+	                <form class="g-search" action="" accept-charset="UTF-8" method="get">
+	                    <input type="text" name="q" id="q" class="g-input g-input-text g-input-border g-search_input" placeholder="Search">
+	                    <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+	                        <i class="fa-solid fa-magnifying-glass"></i>
+	                    </button>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	    <div class="top_container">
+        <div class="top-left top-shadow"></div>
+    </div>
+    <div class="gameNavText">
+        <div class="gameNavText_inner">
+            <ul class="gameNavText_list gameNavText_list-grow">
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/legend}">伝説レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/ultra}">超激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/super}">激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/rare}">レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/ex}">EX</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/normal}">基本キャラ</a>
+                </li>
+            </ul>
         </div>
-        <div class="login_form_btm">
-            <input type="text" name="username">user_name<br/>
-            <input type="password" name="password">password
-            </br>
-        </div>
-        <input type="submit" value="Login">ログイン</input>
-    </form>
-</body>
+    </div>
+	    <div class="content-1">
+	        <div class="signBase">
+	            <div class="signBase_header">
+	                <p class="signBase_header_title">Login</p>
+	            </div>
+	            <div class="sessions_form">
+	                <form th:action="@{/login/auth}" method="post">
+	                    <input placeholder="Mail" class="signBase_inputForm" type="text" name="username" />
+	                    <input placeholder="Password" class="signBase_inputForm signBase_inputForm-overlap" type="password" name="password" />
+	                    <div class="sessions_forget_password"></div>
+	                    <button name="button" type="submit" class="g-btn g-btn-blue g-btn-block g-btn-md g-btn-shadow">Login</button>
+	                </form>
+	            </div>
+	        </div>
+	    </div>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	    <script>
+			$(function(){
+				$(".alert").fadeOut(5000);
+			});
+		</script>
+	</body>
 </html>

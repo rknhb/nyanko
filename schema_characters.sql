@@ -14,6 +14,8 @@ CREATE TABLE IF NOT EXISTS public.characters
     reproduction real NOT NULL,
     knockback integer NOT NULL,
     image character varying(255) COLLATE pg_catalog."default",
+    classification integer,
+    "number" integer,
     CONSTRAINT characters_pkey PRIMARY KEY (id),
     CONSTRAINT characters_name_key UNIQUE (name),
     CONSTRAINT characters_id_check CHECK (id > 0)
@@ -23,3 +25,5 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.characters
     OWNER to nyanko;
+
+GRANT ALL ON TABLE public.characters TO nyanko;

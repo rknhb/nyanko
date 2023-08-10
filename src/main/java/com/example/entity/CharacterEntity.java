@@ -43,6 +43,12 @@ public class CharacterEntity {
 	
 	@Column(nullable = true)
 	private String image;
+	
+	@Column(nullable = true)
+	private int classification;
+	
+	@Column(nullable = true)
+	private int number;
 
 	public long getId() {
 		return id;
@@ -122,5 +128,21 @@ public class CharacterEntity {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public int getClassification() {
+		return classification;
+	}
+
+	public void setClassification(int classification) {
+		this.classification = classification;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
 	}
 }

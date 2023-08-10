@@ -16,9 +16,11 @@ import javax.validation.ReportAsSingleViolation;
 @ReportAsSingleViolation
 public @interface PasswordEquals {
 	
-	String message() default "{com.examle.validation.constraints.PasswordEquals.message}";
+	String message() default "{com.example.validation.constraints.PasswordEquals.message}";
 	
 	Class<?>[] groups() default {};
+	
+	Class<? extends Payload>[] payload() default {};
 	
 	@Target({ ElementType.TYPE })
 	@Retention(RetentionPolicy.RUNTIME)

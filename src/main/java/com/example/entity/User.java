@@ -30,9 +30,14 @@ public class User implements UserDetails, UserInf {
 		ROLE_USER, ROLE_ADMIN
 	};
 	
+	public User() {
+		super();
+	}
+	
 	public User(String email, String password, Authority authority) {
 		this.username = email;
 		this.password = password;
+		this.authority = authority;
 	}
 	
 	@Id

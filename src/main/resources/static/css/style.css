@@ -79,7 +79,6 @@ a img {
     border: none;
 }
 
-/*application...64fb.css:50*/
 .g-btn {
     box-sizing: border-box;
     display: inline-block;
@@ -102,7 +101,6 @@ a img {
     height: 56px;
 }
 
-/*application...64fb.css:58*/
 .gameHeader_inner {
     display: table;
     margin: 0 auto;
@@ -605,4 +603,84 @@ ul {
     margin: 15px 0;
     font-weight: bold;
     color: #313131;
+}
+
+.signBase {
+    padding: 50px;
+    width: 460px;
+    margin: 20px auto 0;
+    background-color: #a9a9a9;
+    box-shadow: rgba(0,0,0,0.1) 0 2px 3px;
+}
+
+.signBase_header {
+    margin: 0 0 50px;
+}
+
+.signBase_header_title {
+    font-size: 1.7rem;
+    line-height: 1.7rem;
+    margin: 0 0 6px;
+    font-weight: bold;
+}
+
+.sessions_form {
+    margin: 0 0 30px;
+}
+
+.signBase_inputForm {
+    font-size: 1.5rem;
+    padding: 10px 12px;
+    border: solid 1px #d1d8e2;
+    line-height: 1.7;
+    width: 100%;
+    background: #a9a9a9;
+    -webkit-appearance: none;
+    border-radius: 0;
+    margin: 0;
+}
+
+.signBase_inputForm-overlap {
+    margin: -1px 0 0 !important;
+}
+
+.signBase_inputForm:focus {
+    background: #a9a9a9;
+    outline: 0;
+    box-shadow: 0 0 8px rgba(0,0,0,0.15)
+}
+
+.sessions_forget_password {
+    font-size: 1.1rem;
+    line-height: 1.1rem;
+    margin: 10px 0;
+    text-align: right;
+}
+
+.g-btn-md {
+    font-size: 13px;
+    line-height: 19px;
+    padding: 10px 8px 11px;
+    height: 40px;
+}
+
+.g-btn-blue {
+    color: #808080;
+    background-color: #ff6347;
+}
+
+.g-btn-block {
+    width: 100%;
+    display: block;
+}
+
+.g-btn-shadow {
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.alert {
+	margin-bottom: 0px;
+	position: fixed;
+	width: 100%;
+	z-index: 10000;
 }

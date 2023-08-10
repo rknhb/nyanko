@@ -47,7 +47,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-		http.authorizeRequests().antMatchers("/", "/login", "/logout-complate", "/users/new", "/user").permitAll()
+		http.authorizeRequests().antMatchers("/", "/login", "/character/**", "/logout-complete", "/users/new", "/user").permitAll()
 		.anyRequest().authenticated()
 		// ログアウト処理
 		.and().logout().logoutUrl("/logout").logoutSuccessUrl("/logout-complete").clearAuthentication(true)
@@ -55,7 +55,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.invalidateHttpSession(true).permitAll().and().csrf()
 		.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 		// form
-		.and().formLogin().loginPage("/login").defaultSuccessUrl("/topics").failureUrl("/login")
+		.and().formLogin().loginProcessingUrl("/login/auth").loginPage("/login").defaultSuccessUrl("/admin", true)
+		.usernameParameter("username")
+		.passwordParameter("password")
+		.failureUrl("/login-failure")
 		.permitAll();
 		// @formatter:on
 	}

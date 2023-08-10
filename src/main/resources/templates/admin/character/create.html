@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
 	<h1>新規追加画面</h1>
 	<p th:text="${message}" />
 
-    <form method="POST" action="/admin/character/add">
+    <form method="POST" th:action="@{/admin/character/add}">
         キャラクター名<input type="text" name="name">
         <br>
         コスト<input type="text" name="cost">
