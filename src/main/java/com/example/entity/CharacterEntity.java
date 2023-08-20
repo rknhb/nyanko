@@ -8,7 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import lombok.Data;
+
 @Entity
+@Data
 @Table(name = "characters")
 public class CharacterEntity {
 	
@@ -44,105 +47,9 @@ public class CharacterEntity {
 	@Column(nullable = true)
 	private String image;
 	
-	@Column(nullable = true)
-	private int classification;
+	@Column(name = "classification", nullable = false)
+	private int type;
 	
-	@Column(nullable = true)
+	@Column(nullable = false)
 	private int number;
-
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getCost() {
-		return cost;
-	}
-
-	public void setCost(int cost) {
-		this.cost = cost;
-	}
-
-	public String getRare() {
-		return rare;
-	}
-
-	public void setRare(String rare) {
-		this.rare = rare;
-	}
-
-	public String getCommentary1() {
-		return commentary1;
-	}
-
-	public void setCommentary1(String commentary1) {
-		this.commentary1 = commentary1;
-	}
-
-	public String getCommentary2() {
-		return commentary2;
-	}
-
-	public void setCommentary2(String commentary2) {
-		this.commentary2 = commentary2;
-	}
-
-	public float getAttack_frequency() {
-		return attack_frequency;
-	}
-
-	public void setAttack_frequency(float attack_frequency) {
-		this.attack_frequency = attack_frequency;
-	}
-
-	public float getReproduction() {
-		return reproduction;
-	}
-
-	public void setReproduction(float reproduction) {
-		this.reproduction = reproduction;
-	}
-
-	public int getKnockback() {
-		return knockback;
-	}
-
-	public void setKnockback(int knockback) {
-		this.knockback = knockback;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public int getClassification() {
-		return classification;
-	}
-
-	public void setClassification(int classification) {
-		this.classification = classification;
-	}
-
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
-	}
 }

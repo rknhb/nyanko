@@ -48,6 +48,8 @@ public class CharacterController {
 		form.getAttack_frequency();
 		form.getReproduction();
 		form.getKnockback();
+		form.getType();
+		form.getNumber();
 		System.out.println(form.getName());
 		System.out.println(form.getCost());
 		System.out.println(form.getRare());
@@ -56,6 +58,8 @@ public class CharacterController {
 		System.out.println(form.getAttack_frequency());
 		System.out.println(form.getReproduction());
 		System.out.println(form.getKnockback());
+		System.out.println(form.getType());
+		System.out.println(form.getNumber());
 		
 		charactersRepository.save(form);
 		return "redirect:/admin";
