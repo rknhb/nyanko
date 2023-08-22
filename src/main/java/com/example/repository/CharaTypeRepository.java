@@ -9,5 +9,5 @@ import com.example.entity.CharaType;
 
 @Repository
 public interface CharaTypeRepository extends JpaRepository<CharaType, Long> {
-	List<CharaType> findByRare(String rare);
+	List<CharaType> findByRareOrderByIdAsc(String rare);
 }
