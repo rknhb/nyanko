@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,16 +30,18 @@ public class CharacterController {
 		List<CharaType> charaTypes = typeRepo.findByRareOrderByIdAsc(rarity);
 		model.addAttribute("characterRarity", characterRarity);
 		model.addAttribute("charaTypes", charaTypes);
-		
 		return "character/index";
 	}
 	
 	@GetMapping("/character/detail/{id}")
 	public String detail(@PathVariable("id") Long id, Model model) {
 		CharacterEntity character = charaRepo.findById(id).get();
-		List<CharaType> charaTypes = typeRepo.findAll();
+		String characterRarity = Rarities.list.get(character.getRare());
+		Optional<CharaType> optional = typeRepo.findById(Long.valueOf(character.getType()));
+		CharaType charaType = optional.get();
 		model.addAttribute("character", character);
-		model.addAttribute("charaTypes", charaTypes);
+		model.addAttribute("characterRarity", characterRarity);
+		model.addAttribute("charaType", charaType);
 		return "character/detail";
 	}
 }

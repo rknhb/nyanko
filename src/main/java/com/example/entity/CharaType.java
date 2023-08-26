@@ -20,7 +20,7 @@ import lombok.Data;
 @Entity
 @Table(name = "characterclassification")
 @Data
-public class CharaType {
+public class CharaType extends AbstractEntity {
 	
 	@Id
 	@SequenceGenerator(name = "characterclassification_id_seq")

@@ -1,5 +1,7 @@
 package com.example.controller.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.entity.CharaType;
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
+import com.example.repository.CharaTypeRepository;
 import com.example.repository.CharacterRepository;
 
 @Controller("admincharactercontroller")
@@ -20,12 +24,19 @@ public class CharacterController {
 	@Autowired
 	private CharacterRepository charactersRepository;
 	
+	@Autowired
+	CharaTypeRepository typeRepo;
+	
 	@GetMapping("/admin/character/{rarity}")
-	public String index() {
+	public String index(@PathVariable("rarity") String rarity, Model model) {
+		String characterRarity = Rarities.list.get(rarity);
+		List<CharaType> charaTypes = typeRepo.findByRareOrderByIdAsc(rarity);
+		model.addAttribute("characterRarity", characterRarity);
+		model.addAttribute("charaTypes", charaTypes);
 		return "admin/character/index";
 	}
 	
-	@GetMapping("/admin/character/detail/{characterId}")
+	@GetMapping("/admin/character/detail/{id}")
 	public String detail() {
 		return "admin/character/detail";
 	}

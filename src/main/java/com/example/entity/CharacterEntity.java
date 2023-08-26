@@ -13,7 +13,7 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "characters")
-public class CharacterEntity {
+public class CharacterEntity extends AbstractEntity {
 	
 	@Id
 	@SequenceGenerator(name = "characters_id_seq")

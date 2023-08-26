@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
     <script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
 </head>
-
 <body class="signed-out">
     <header class="header-1">
         <div class="header_inner">
@@ -101,7 +100,7 @@
                     <div class="container">
 						<div class="row row-cols-3" th:each="type : ${charaTypes}">
 							<div class="col" th:each="character : ${type.characters}">
-								<a th:href="@{/character/detail/{id}(id=${character.id})}" class="a-link" href="">
+								<a th:href="@{/character/detail/{id}(id=${character.id})}" class="a-link">
 									<img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true"><span th:text="${character.name}"></span>
 								</a>
 							</div>

@@ -15,16 +15,16 @@
     <header class="header-1">
         <div class="header_inner">
             <div class="header-1_mypage" id="header-mypage">
-                <a href="" rel="nofollow">Login</a>
+                <a th:href="@{/login}" rel="nofollow">Login</a>
             </div>
         </div>
     </header>
     <div class="gameHeader">
         <div class="gameHeader_inner">
             <div class="gameHeader_game">
-                <a class="gameHeader_game_inner" href="">
+                <a class="gameHeader_game_inner" th:href="@{/}">
                     <div class="gameHeader_gamelogo">
-                        <img alt="にゃんこ大戦争" src="gameHeader_gamelogo.png">
+                        <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
                     </div>
                     <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
                 </a>
@@ -46,22 +46,22 @@
         <div class="gameNavText_inner">
             <ul class="gameNavText_list gameNavText_list-grow">
                 <li class="gameNavText_list_item">
-                    <a class="gameNavText_list_item_link" href="">伝説レア</a>
+                    <a class="gameNavText_list_item_link" th:href="@{/character/legend}">伝説レア</a>
                 </li>
                 <li class="gameNavText_list_item">
-                    <a class="gameNavText_list_item_link" href="">超激レア</a>
+                    <a class="gameNavText_list_item_link" th:href="@{/character/ultra}">超激レア</a>
                 </li>
                 <li class="gameNavText_list_item">
-                    <a class="gameNavText_list_item_link" href="">激レア</a>
+                    <a class="gameNavText_list_item_link" th:href="@{/character/super}">激レア</a>
                 </li>
                 <li class="gameNavText_list_item">
-                    <a class="gameNavText_list_item_link" href="">レア</a>
+                    <a class="gameNavText_list_item_link" th:href="@{/character/rare}">レア</a>
                 </li>
                 <li class="gameNavText_list_item">
-                    <a class="gameNavText_list_item_link" href="">EX</a>
+                    <a class="gameNavText_list_item_link" th:href="@{/character/ex}">EX</a>
                 </li>
                 <li class="gameNavText_list_item">
-                    <a class="gameNavText_list_item_link" href="">基本キャラ</a>
+                    <a class="gameNavText_list_item_link" th:href="@{/character/normal}">基本キャラ</a>
                 </li>
             </ul>
         </div>
@@ -70,17 +70,17 @@
         <div class="breadcrumb-1">
             <ul class="breadcrumb-1_list">
                 <li>
-                    <a href="">
+                    <a th:href="@{/}">
                         <span>にゃんこ大戦争攻略</span>
                     </a>
                 </li>
                 <li>
-                    <a href="">
-                        <span>伝説レア一覧</span>
+                    <a th:href="@{/character/{rarity}(rarity=${character.rare})}">
+                        <span th:text="${characterRarity + '一覧'}"></span>
                     </a>
                 </li>
                 <li>
-                    <span>宮本武蔵の評価</span>
+                    <span th:text="${character.name + 'の評価'}"></span>
                 </li>
             </ul>
         </div>
@@ -89,7 +89,7 @@
         <div class="l-3co1Main">
             <div class="l-3co1Main_center l-3co1Main_center-shadow">
                 <div class="archiveHeader">
-                    <h1 class="archiveHeader_title">【にゃんこ大戦争】宮本武蔵の評価</h1>
+                    <h1 class="archiveHeader_title">【にゃんこ大戦争】<span th:text="${character.name}"></span>の評価</h1>
                     <div class="archiveHeader_author">
                         <i class="fa-solid fa-pencil" style="margin-right: 5px;"></i>
                         <span itemprop="author">RKNHB</span>
@@ -105,7 +105,7 @@
                     <p class="a-paragraph"></p>
                     <p></p>
                     <p class="a-paragraph">
-                        <b class="a-bold">宮本武蔵の進化元・進化先</b>
+                        <b class="a-bold"><span th:text="${character.name}"></span>の進化元・進化先</b>
                     </p>
                     <table class="a-table a-table a-table" style>
                         <tbody>
@@ -114,47 +114,51 @@
                                 <th width="33%">第二形態</th>
                                 <th width="33%">第三形態</th>
                             </tr>
-                            <tr>
-                                <td class="center">
-                                    <b class="a-bold">
-                                        <img src="character_images\Miyamoto_musashi.png" class="a-img lazy lazy-non-square lazy-loaded" alt="宮本武蔵の画像" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true">宮本武蔵
-                                    </b>
+                            <tr th:each="type : ${charaType}">
+                                <td class="center" th:each="character : ${type.characters}">
+									<th:block th:if="${id == character.id}">
+										<b class="a-bold">
+											<img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true"><span th:text="${character.name}"></span>
+										</b>
+									</th:block>
+									<th:block th:if="${id != character.id}">
+										<a th:href="@{/character/detail/{id}(id=${character.id})}" class="a-link">
+											<img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true"><span th:text="${character.name}"></span>
+										</a>
+									</th:block>
                                 </td>
-                                <td class="center">
-                                    <a  class="a-link" href="">
-                                        <img src="character_images/Kenjin_Miyamoto_musashi.png" class="a-img lazy lazy-non-square lazy-loaded" alt="剣神・宮本武蔵の画像" width="60" style="height: 0; padding-bottom: calc(60px*45/60); padding-bottom: calc(min(100%,60px)*45/60);" data-loaded="true">剣神・宮本武蔵
-                                    </a>
-                                </td>
-                                <td class="center">/</td>
+                                <th:block th:if="${#lists.size(type.characters) != 3}" th:each="j : ${#numbers.sequence(1, 3 - #lists.size(type.characters))}">
+										<td class="center">/</td>
+								</th:block>
                             </tr>
                         </tbody>
                     </table>
                     <p class="a-paragraph"></p>
                     <div class="ad-wrapper"></div>
-                    <h2 class="a-header-2">宮本武蔵の評価点</h2>
+                    <h2 class="a-header-2"><span th:text="${character.name}"></span>の評価点</h2>
                     <table class="a-table a-table a-table" style>
                         <tbody>
                              <tr>
                                 <td class="center" rowspan="3" width="50%">
                                     <b class="a-bold">
-                                        <img src="character_images\Miyamoto_musashi.png" class="a-img lazy lazy-non-square lazy-loaded" alt="宮本武蔵の画像" width="50" style="height: 0; padding-bottom: calc(50px*38/50); padding-bottom: calc(min(100%,50px)*38/50);" data-loaded="true">宮本武蔵
+                                        <img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="50" style="height: 0; padding-bottom: calc(50px*38/50); padding-bottom: calc(min(100%,50px)*38/50);" data-loaded="true"><span th:text="${character.name}"></span>
                                     </b>
                                 </td>
                             </tr>
                             <tr>
-                                <td>コスト: 4275</td>
+                                <td>コスト: <span th:text="${character.cost}"></span></td>
                             </tr>
                             <tr>
-                                <td>ランク: 伝説レア</td>
+                                <td>ランク: <span th:text="${characterRarity}"></span></td>
                             </tr>
                         </tbody>
                     </table>
-                    <h3 class="a-header-3" id="hm_1">宮本武蔵の総合評価</h3>
-                    <h4 class="a-header-4" id="hs_1">全てが高水準の最強アタッカー</h4>
+                    <h3 class="a-header-3" id="hm_1"><span th:text="${character.name}"></span>の総合評価</h3>
+                    <h4 class="a-header-4" id="hs_1"><span th:text="${character.commentary1}"></span></h4>
                     <p class="a-paragraph">
-                        「宮本武蔵」は、黒い敵に「極ダメージ」と「打たれ強い」特性を持つ強力なアタッカー。高いステータスに加え優秀な特性を併せ持ち、黒い敵は勿論その他の敵に対しても最強クラスのアタッカーとして戦う事ができる。
+                        <span th:text="${character.commentary2}"></span>
                     </p>
-                    <h2 class="a-header-2" id="h1_6">宮本武蔵のステータス</h2>
+                    <h2 class="a-header-2" id="h1_6"><span th:text="${character.name}"></span>のステータス</h2>
                     <table class="a-table a-table a-table" style>
                         <tbody>
                             <tr>
@@ -163,9 +167,9 @@
                                 <th width="33%">KB</th>
                             </tr>
                             <tr>
-                                <td class="center">約2.20秒</td>
-                                <td class="center">約91.53秒</td>
-                                <td class="center">4</td>
+                                <td class="center">約<span th:text="${character.attack_frequency}"></span>秒</td>
+                                <td class="center">約<span th:text="${character.reproduction}"></span>秒</td>
+                                <td class="center"><span th:text="${character.knockback}"></span></td>
                             </tr>
                         </tbody>
                     </table>

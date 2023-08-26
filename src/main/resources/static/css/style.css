@@ -118,12 +118,10 @@ a img {
     display: table;
 }
 
-/*application...64fb.css:58*/
 .gameHeader_gamelogo {
     display: table-cell;
 }
 
-/*application...64fb.css:58*/
 .gameHeader_gamelogo img {
     display: block;
     width: 45px;
@@ -501,6 +499,36 @@ ul {
     background-color: #a9a9a9;
 }
 
+.a-table {
+    font-size: 1.15rem;
+    line-height: 2.6rem;
+    margin: 0 0 15px;
+    border-bottom: 1px solid #d1d8e2;
+    width: 100%;
+    table-layout: auto;
+    box-shadow: rgba(0,0,0,0.05) 0 1px 1px 0;
+    border-collapse: collapse;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.a-table th.center, .a-table td.center {
+    text-align: center;
+}
+
+.a-table th, .a-table td {
+    border: 1px #d1d8e2 solid;
+    padding: 8px 6px 7px;
+}
+
+th, td {
+    font-weight: normal;
+    vertical-align: middle;
+}
+
 .container {
 	font-size: 1.15rem;
 	line-height: 2.6rem;
@@ -528,6 +556,10 @@ ul {
     font-weight: bolder;
 }
 
+.a-table th.center .a-img, .a-table td.center .a-img {
+    margin: 3px auto;
+}
+
 .col .a-img {
 	margin: 3px auto;
 }
@@ -535,6 +567,10 @@ ul {
 .lazy.lazy-non-square.lazy-loaded {
     height: auto !important;
     padding-bottom: 0 !important;
+}
+
+.a-table th .a-img, .a-table td .a-img {
+    margin: 0;
 }
 
 .a-img {
@@ -554,6 +590,12 @@ ul {
 
 .a-bold {
     font-weight: bold;
+}
+
+.a-table th {
+    background-color: #c0c0c0;
+    font-weight: bold;
+    text-align: center;
 }
 
 .ad-wrapper {
@@ -593,7 +635,7 @@ ul {
     font-size: 1.4rem;
     line-height: 1.8rem;
     padding: 0 10px 0 20px;
-    background-image: url('checkMark.png');
+    background-image: url('/images/checkMark.png');
     background-position: left 0 top 2px;
     background-repeat: no-repeat;
     background-size: 15px 15px;
