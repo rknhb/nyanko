@@ -1,6 +1,7 @@
 package com.example.controller.admin;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,7 @@ import com.example.repository.CharacterRepository;
 public class CharacterController {
 	
 	@Autowired
-	private CharacterRepository charactersRepository;
+	private CharacterRepository charaRepo;
 	
 	@Autowired
 	CharaTypeRepository typeRepo;
@@ -37,7 +38,14 @@ public class CharacterController {
 	}
 	
 	@GetMapping("/admin/character/detail/{id}")
-	public String detail() {
+	public String detail(@PathVariable("id") Long id, Model model) {
+		CharacterEntity character = charaRepo.findById(id).get();
+		String characterRarity = Rarities.list.get(character.getRare());
+		Optional<CharaType> optional = typeRepo.findById(Long.valueOf(character.getType()));
+		CharaType charaType = optional.get();
+		model.addAttribute("character", character);
+		model.addAttribute("characterRarity", characterRarity);
+		model.addAttribute("charaType", charaType);
 		return "admin/character/detail";
 	}
 	
@@ -72,13 +80,13 @@ public class CharacterController {
 		System.out.println(form.getType());
 		System.out.println(form.getNumber());
 		
-		charactersRepository.save(form);
+		charaRepo.save(form);
 		return "redirect:/admin";
 	}
 	
 	@GetMapping("/admin/character/edit/{id}")
 	public String edit(@PathVariable("id") Long id, Model model) {
-		CharacterEntity character = charactersRepository.findById(id).get();
+		CharacterEntity character = charaRepo.findById(id).get();
 		model.addAttribute("character", character);
 		model.addAttribute("raritys", Rarities.list);
 		

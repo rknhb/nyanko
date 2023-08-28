@@ -53,6 +53,19 @@ b {
     justify-content: space-between;
 }
 
+.header_logo {
+	padding: 12px 8px 0;
+}
+
+.header_logo a {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    display: block;
+    padding: 0 10px;
+    color: rgba(255,255,255,0.75);
+    font-weight: bold;
+}
+
 .header-1_mypage {
     display: flex;
     justify-content: center;
@@ -130,7 +143,6 @@ a img {
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
-/*application...64fb.css:58*/
 .gameHeader_game_title {
     font-size: 1.6rem;
     line-height: 3.1rem;

@@ -1,96 +1,186 @@
 <!DOCTYPE html>
-<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width-device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <title th:text="${'にゃんこ大戦争|' + character.name}"></title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
 </head>
-<body>
-	<a th:href="@{/admin/character/edit}">編集</a>
 
-    <div class="1_Main_center 1_main_center-shadow">
-        <div class="archiveHeader">
-            <h1 class="p-archiveHeader_title">【にゃんこ大戦争】ネコ</h1>
+<body class="signed-out">
+	<header class="header-1">
+        <div class="header_inner">
+            <div class="header-1_mypage" id="header-mypage">
+                <form th:action="@{/logout}" method="post" name="myform">
+					<a href="javascript:document.myform.submit()">Logout</a>
+					<input type="hidden" />
+				</form>
+            </div>
+        </div>
+    </header>
+    <div class="gameHeader">
+        <div class="gameHeader_inner">
+            <div class="gameHeader_game">
+                <a class="gameHeader_game_inner" th:href="@{/admin}">
+                    <div class="gameHeader_gamelogo">
+                        <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
+                    </div>
+                    <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
+                </a>
+            </div>
+            <div class="gameHeader_search">
+                <form class="g-search" action="" accept-charset="UTF-8" method="get">
+                    <input type="text" name="q" id="q" class="g-input g-input-text g-input-border g-search_input" placeholder="Search">
+                    <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="archive-style-wrapper">
-        <p class="a-paragraph">
-            <b class="a-bold">ネコの進化元・進化先</b>
-        </p>
-        <table class="a-table a-table a-table" style>
-            <tbody>
-                <tr>
-                    <th width="33%">第一形態</th>
-                    <th width="33%">第二形態</th>
-                    <th width="33%">第三形態</th>
-                </tr>
-                <tr>
-                    <td class="center">
-                        <b class="a-bold">
-                            <img src="show.jpg" class="a-img lazy iazy-non-square lazy-loaded" alt="ネコの画像">
-                            "ネコ"
-                        </b>
-                    </td>
-                    <td class="center">
-                        <a class="a-link" href="">
-                            <img src="show (1).jpg" class="a-img lazy iazy-non-square lazy-loaded" alt="ネコビルダーの画像">
-                            "ネコビルダー"
-                        </a>
-                    </td>
-                    <td class="center">
-                        <a class="a-link" href="">
-                            <img src="show (2).jpg" class="a-img lazy iazy-non-square lazy-loaded" alt="ネコモヒカンの画像">
-                            "ネコモヒカン"
-                        </a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p class="a-paragraph"></p>
-        <h2 class="a-header--2" id="h1_1">ネコの総合評価</h2>
-        <h3 class="a-header--3" id="hm_1">評価</h3>
-        <table class="a-table a-table a-table" style>
-            <tbody>
-                <tr>
-                    <td class="center" rowspan="3" width="50%">
-                        <b class="a-bold">
-                            <img src="show.jpg" class="a-img lazy lazy-non-square lazy-loaded" alt="ネコの画像">
-                            "ネコ"
-                        </b>
-                    </td>
-                </tr>
-                <tr>
-                    <td>コスト： 75</td>
-                </tr>
-                <tr>
-                    <td>
-                        "ランク： "
-                        <a class="a-link" href="character_list.html">基本</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <h3 class="a-header--3" id="hm_2">解説</h3>
-        <h4 class="a-header--4" id="hm_2">序盤から終盤まで幅広い場面で活躍する優秀な壁役</h4>
-        <p class="a-paragraph">
-            "宇宙生物か、霊的な存在か、すべてが謎に包まれた基本キャラ。進化すると腕やら髪やら生えるのに、攻撃手段には進歩がないにゃんこ。じつはネコの大量生産は作中屈指の防御手段。"
-        </p>
-        <h2 class="a-header--2" id="h1_7">ネコのステータス・攻撃対象・特性</h2>
-        <h3 class="a-header--3" id="hm_9">ネコのステータス</h3>
-        <table class="a-table a-table a-table" style>
-            <tbody>
-                <tr>
-                    <th width="33%">攻撃頻度</th>
-                    <th width="33%">再生産</th>
-                    <th width="33%">ノックバック数</th>
-                </tr>
-                <td class="center"> 約1.23秒 </td>
-                <td class="center"> 約2.00秒 </td>
-                <td class="center"> 3回 </td>
-            </tbody>
-        </table>
+    <div class="top_container">
+        <div class="top-left top-shadow"></div>
     </div>
-   
+    <div class="gameNavText">
+        <div class="gameNavText_inner">
+            <ul class="gameNavText_list gameNavText_list-grow">
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/legend}">伝説レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/ultra}">超激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/super}">激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/rare}">レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/ex}">EX</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/normal}">基本キャラ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-1">
+        <div class="breadcrumb-1">
+            <ul class="breadcrumb-1_list">
+                <li>
+                    <a th:href="@{/admin}">
+                        <span>にゃんこ大戦争攻略</span>
+                    </a>
+                </li>
+                <li>
+                    <a th:href="@{/character/{rarity}(rarity=${character.rare})}">
+                        <span th:text="${characterRarity + '一覧'}"></span>
+                    </a>
+                </li>
+                <li>
+                    <span th:text="${character.name + 'の評価'}"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="l-3co1">
+        <div class="l-3co1Main">
+            <div class="l-3co1Main_center l-3co1Main_center-shadow">
+                <div class="archiveHeader">
+                    <h1 class="archiveHeader_title">【にゃんこ大戦争】<span th:text="${character.name}"></span>の評価</h1>
+                    <div class="archiveHeader_author">
+						<a th:href="@{/admin/character/edit/{id}(id=${character.id})}">
+							<i class="fa-solid fa-pencil" style="margin-right: 5px;"></i>
+						</a>
+                        <span itemprop="author">RKNHB</span>
+                    </div>
+                    <div class="archiveHeader_info">
+                        <div class="archiveHeader_date">
+                            <i class="fa-regular fa-clock" style="margin-right: 5px;"></i>
+                            <span th:text="${'最終更新日 : ' + #dates.format(character.updatedAt, 'yyyy.MM.dd HH:mm')}"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="archive-style-wrapper">
+                    <p class="a-paragraph"></p>
+                    <p></p>
+                    <p class="a-paragraph">
+                        <b class="a-bold"><span th:text="${character.name}"></span>の進化元・進化先</b>
+                    </p>
+                    <table class="a-table a-table a-table" style>
+                        <tbody>
+                            <tr>
+                                <th width="33%">第一形態</th>
+                                <th width="33%">第二形態</th>
+                                <th width="33%">第三形態</th>
+                            </tr>
+                            <tr th:each="type : ${charaType}">
+                                <td class="center" th:each="character : ${type.characters}">
+									<th:block th:if="${id == character.id}">
+										<b class="a-bold">
+											<img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true"><span th:text="${character.name}"></span>
+										</b>
+									</th:block>
+									<th:block th:if="${id != character.id}">
+										<a th:href="@{/admin/character/detail/{id}(id=${character.id})}" class="a-link">
+											<img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true"><span th:text="${character.name}"></span>
+										</a>
+									</th:block>
+                                </td>
+                                <th:block th:if="${#lists.size(type.characters) != 3}" th:each="j : ${#numbers.sequence(1, 3 - #lists.size(type.characters))}">
+										<td class="center">/</td>
+								</th:block>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="a-paragraph"></p>
+                    <div class="ad-wrapper"></div>
+                    <h2 class="a-header-2"><span th:text="${character.name}"></span>の評価点</h2>
+                    <table class="a-table a-table a-table" style>
+                        <tbody>
+                             <tr>
+                                <td class="center" rowspan="3" width="50%">
+                                    <b class="a-bold">
+                                        <img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="50" style="height: 0; padding-bottom: calc(50px*38/50); padding-bottom: calc(min(100%,50px)*38/50);" data-loaded="true"><span th:text="${character.name}"></span>
+                                    </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>コスト: <span th:text="${character.cost}"></span></td>
+                            </tr>
+                            <tr>
+                                <td>ランク: <span th:text="${characterRarity}"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h3 class="a-header-3" id="hm_1"><span th:text="${character.name}"></span>の総合評価</h3>
+                    <h4 class="a-header-4" id="hs_1"><span th:text="${character.commentary1}"></span></h4>
+                    <p class="a-paragraph">
+                        <span th:text="${character.commentary2}"></span>
+                    </p>
+                    <h2 class="a-header-2" id="h1_6"><span th:text="${character.name}"></span>のステータス</h2>
+                    <table class="a-table a-table a-table" style>
+                        <tbody>
+                            <tr>
+                                <th width="33%">攻撃頻度</th>
+                                <th width="33%">再生産</th>
+                                <th width="33%">KB</th>
+                            </tr>
+                            <tr>
+                                <td class="center">約<span th:text="${character.attack_frequency}"></span>秒</td>
+                                <td class="center">約<span th:text="${character.reproduction}"></span>秒</td>
+                                <td class="center"><span th:text="${character.knockback}"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>   
 </body>
 </html>
