@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS public.characters
     image character varying(255) COLLATE pg_catalog."default",
     classification integer,
     "number" integer,
+    created_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at timestamp without time zone NOT NULL DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT characters_pkey PRIMARY KEY (id),
     CONSTRAINT characters_name_key UNIQUE (name),
     CONSTRAINT characters_id_check CHECK (id > 0)
