@@ -14,7 +14,7 @@ import com.example.entity.CharaType;
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
 import com.example.repository.CharaTypeRepository;
-import com.example.repository.CharacterDateRepository;
+import com.example.repository.CharacterSearchRepository;
 import com.example.repository.CharacterRepository;
 
 @Controller("charactercontroller")
@@ -27,13 +27,10 @@ public class CharacterController {
 	private CharaTypeRepository typeRepo;
 	
 	@Autowired
-	private CharacterDateRepository dateRepo;
+	private CharacterSearchRepository dateRepo;
 	
 	@GetMapping("/character/{rarity}")
 	public String index(@PathVariable("rarity") String rarity, Model model) {
-		//CharacterEntity character = charaRepo.findById(Long.valueOf(1)).get();
-		//Date date = character.getUpdatedAt();
-		
 		String characterRarity = Rarities.list.get(rarity);
 		List<CharaType> charaTypes = typeRepo.findByRareOrderByIdAsc(rarity);
 		Date date = dateRepo.getMaxUpdatedAt(rarity);
@@ -53,5 +50,10 @@ public class CharacterController {
 		model.addAttribute("characterRarity", characterRarity);
 		model.addAttribute("charaType", charaType);
 		return "character/detail";
+	}
+	
+	@GetMapping("/character/search")
+	public String search() {
+		return "character/search";
 	}
 }

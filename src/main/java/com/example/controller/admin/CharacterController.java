@@ -1,5 +1,6 @@
 package com.example.controller.admin;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,7 @@ import com.example.entity.CharaType;
 import com.example.entity.CharacterEntity;
 import com.example.entity.Rarities;
 import com.example.repository.CharaTypeRepository;
+import com.example.repository.CharacterSearchRepository;
 import com.example.repository.CharacterRepository;
 
 @Controller("admincharactercontroller")
@@ -26,14 +28,19 @@ public class CharacterController {
 	private CharacterRepository charaRepo;
 	
 	@Autowired
-	CharaTypeRepository typeRepo;
+	private CharaTypeRepository typeRepo;
+	
+	@Autowired
+	private CharacterSearchRepository dateRepo;
 	
 	@GetMapping("/admin/character/{rarity}")
 	public String index(@PathVariable("rarity") String rarity, Model model) {
 		String characterRarity = Rarities.list.get(rarity);
 		List<CharaType> charaTypes = typeRepo.findByRareOrderByIdAsc(rarity);
+		Date date = dateRepo.getMaxUpdatedAt(rarity);
 		model.addAttribute("characterRarity", characterRarity);
 		model.addAttribute("charaTypes", charaTypes);
+		model.addAttribute("date", date);
 		return "admin/character/index";
 	}
 	

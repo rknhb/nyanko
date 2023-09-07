@@ -94,7 +94,7 @@
                     <div class="archiveHeader_info">
                         <div class="archiveHeader_date">
                             <i class="fa-regular fa-clock" style="margin-right: 5px;"></i>
-                            <time content="2023-04-05" datetime="2024-04-05T00:14" itemprop="dateMOdifield">最終更新日：XXXX.XX.XX XX:XX</time>
+                            <span th:text="${'最終更新日 : ' + #dates.format(date, 'yyyy.MM.dd HH:mm')}"></span>
                         </div>
                     </div>
                 </div>
