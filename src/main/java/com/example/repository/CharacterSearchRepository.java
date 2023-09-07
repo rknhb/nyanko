@@ -22,4 +22,5 @@ public class CharacterSearchRepository {
 				.setParameter(1, rare);
 		return (Date) query.getSingleResult();
 	}
+	
 }
