@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.entity.CharaType;
 import com.example.entity.CharacterEntity;
@@ -32,6 +33,9 @@ public class CharacterController {
 	
 	@Autowired
 	private CharacterSearchRepository dateRepo;
+	
+	@Autowired
+	private CharacterSearchRepository searchRepo;
 	
 	@GetMapping("/admin/character/{rarity}")
 	public String index(@PathVariable("rarity") String rarity, Model model) {
@@ -102,6 +106,14 @@ public class CharacterController {
 	
 	@PostMapping("/admin/character/update")
 	public String update() {
-		return "redirect:/character/detail";
+		return "redirect:/admin/character/detail";
+	}
+	
+	@GetMapping("/admin/character/search")
+	public String search(@RequestParam("q") String word, Model model) {
+		List<CharacterEntity> characters = searchRepo.search(word);
+		model.addAttribute("word", word);
+		model.addAttribute("characters", characters);
+		return "admin/character/search";
 	}
 }

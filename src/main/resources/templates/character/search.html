@@ -1,1 +1,114 @@
-あああああああああ
+<!DOCTYPE html>
+<html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+    <title th:text="${'にゃんこ大戦争|' + word}"></title>
+    <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+    <script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="signed-out">
+    <header class="header-1">
+        <div class="header_inner">
+            <div class="header-1_mypage" id="header-mypage">
+                <a th:href="@{/login}" rel="nofollow">Login</a>
+            </div>
+        </div>
+    </header>
+    <div class="gameHeader">
+        <div class="gameHeader_inner">
+            <div class="gameHeader_game">
+                <a class="gameHeader_game_inner" th:href="@{/}">
+                    <div class="gameHeader_gamelogo">
+                        <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
+                    </div>
+                    <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
+                </a>
+            </div>
+            <div class="gameHeader_search">
+                <form class="g-search" th:action="@{/character/search}" accept-charset="UTF-8" method="get">
+                    <input type="text" name="q" id="q" value class="g-input g-input-text g-input-border g-search_input" placeholder="Search" th:value="${word}">
+                    <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="top_container">
+        <div class="top-left top-shadow"></div>
+    </div>
+    <div class="gameNavText">
+        <div class="gameNavText_inner">
+            <ul class="gameNavText_list gameNavText_list-grow">
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/legend}">伝説レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/ultra}">超激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/super}">激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/rare}">レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/ex}">EX</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/character/normal}">基本キャラ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-1">
+        <div class="breadcrumb-1">
+            <ul class="breadcrumb-1_list">
+                <li>
+                   <a th:href="@{/}">
+                        <span>にゃんこ大戦争攻略</span>
+                    </a>
+                </li>
+                <li>
+                    <span th:text="${'「' + word + '」の検索結果'}"></span>
+                </li>
+            </ul>
+        </div>
+        <div class="l-3co1">
+            <div class="l-3co1Main">
+                <div class="l-3co1Main_center l-3co1Main_center-shadow">
+                    <div class="g-searchContainer">
+                        <form class="g-search" th:action="@{/character/search}" accept-charset="UTF-8" method="get">
+                            <input type="text" name="q" id="q" value class="g-input g-input-text g-input-border g-search_input" placeholder="Search" th:value="${word}">
+                            <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="archiveHeader">
+                        <h1 class="archiveHeader_title"><span th:text="${'「' + word + '」の検索結果'}"></span></h1>
+                    </div>
+                    <ul class="archiveSearchList">
+                        <div class="archiveSearchList_top_ad" id="afscontainer1" style="height: auto;"></div>
+                        <li class="archiveSearchListItem" th:each="character : ${characters}">
+							<a class="archiveSearchListItem_link" th:href="@{/character/detail/{id}(id=${character.id})}">
+								<p class="archiveSearchListItem_title"><span th:text="${character.name + 'の評価と使い道'}"></span></p>
+								<p class="archiveSearchListItem_description">
+									<span th:text="${'にゃんこ大戦争における、' + character.name + 'の評価と使い道を掲載しています。' + character.name + 'のステータスや特性、進化前・進化後のキャラなど、あらゆる情報を掲載しています。'}"></span>
+                                </p>
+                                <p class="archiveSearchListItem_date"><span th:text="${#dates.format(character.updatedAt, 'yyyy.MM.dd HH:mm')}"></span></p>
+                            </a>
+                        </li>
+                        <div class="archiveSearchList_bottom-ad" id="afscontainer2"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

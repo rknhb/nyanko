@@ -153,7 +153,6 @@ a img {
     font-weight: bold;
 }
 
-/*application...64fb.css:58*/
 .gameHeader_search {
     box-sizing: border-box;
     display: table-cell;
@@ -728,6 +727,58 @@ th, td {
 
 .g-btn-shadow {
     box-shadow: 0 0 6px rgba(0,0,0,0.2);
+}
+
+.g-searchContainer {
+    padding: 10px;
+}
+
+.archiveSearchList {
+    width: 100%;
+    background-color: #a9a9a9;
+}
+
+.archiveSearchList_top_ad {
+    padding: 0 10px;
+    margin: 0 0 5px;
+}
+
+.archiveSearchListItem {
+    margin: 0 0 10px;
+    padding: 0 10px;
+}
+
+.archiveSearchListItem_link {
+    box-shadow: rgba(0,0,0,0.2) 0 1px 1px 0;
+    display: block;
+    padding: 10px;
+    border: 1px solid #dde4e6;
+    border-radius: 2px;
+}
+
+.archiveSearchListItem_title {
+    font-size: 1.4rem;
+    line-height: 2.1rem;
+    margin: 0 0 6px;
+    color: #ff4500;
+    font-weight: bold;
+}
+
+.archiveSearchListItem_description {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    margin: 0 0 6px;
+    color: #313131;
+}
+
+.archiveSearchListItem_date {
+    font-size: 1.2rem;
+    color: #006621;
+}
+
+.archiveSearchList_bottom-ad {
+    padding: 0 10px;
+    margin: -5px 0 0;
 }
 
 .alert {

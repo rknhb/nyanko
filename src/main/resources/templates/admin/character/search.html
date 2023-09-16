@@ -3,37 +3,38 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width-device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
-    <title th:text="${'にゃんこ大戦争|' + characterRarity + '一覧'}"></title>
+    <title th:text="${'にゃんこ大戦争|' + word}"></title>
     <link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
     <script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
 </head>
+
 <body class="signed-out">
-	<header class="header-1">
+    <header class="header-1">
         <div class="header_inner">
             <div class="header-1_mypage" id="header-mypage">
-                <form th:action="@{/logout}" method="post" name="myform">
+				<form th:action="@{/logout}" method="post" name="myform">
 					<a href="javascript:document.myform.submit()">Logout</a>
 					<input type="hidden" />
 				</form>
-            </div>
+			</div>
         </div>
     </header>
     <div class="gameHeader">
         <div class="gameHeader_inner">
             <div class="gameHeader_game">
-                <a class="gameHeader_game_inner" th:href="@{/admin}">
-                    <div class="gameHeader_gamelogo">
+				<a class="gameHeader_game_inner" th:href="@{/admin}">
+					<div class="gameHeader_gamelogo">
                         <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
                     </div>
                     <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
                 </a>
             </div>
             <div class="gameHeader_search">
-                <form class="g-search" th:action="@{/admin/character/search}" accept-charset="UTF-8" method="get">
-                    <input type="text" name="q" id="q" class="g-input g-input-text g-input-border g-search_input" placeholder="Search">
+				<form class="g-search" th:action="@{/admin/character/search}" accept-charset="UTF-8" method="get">
+                    <input type="text" name="q" id="q" value class="g-input g-input-text g-input-border g-search_input" placeholder="Search" th:value="${word}">
                     <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
@@ -72,51 +73,45 @@
         <div class="breadcrumb-1">
             <ul class="breadcrumb-1_list">
                 <li>
-                    <a th:href="@{/admin}">
+                   <a th:href="@{/admin}">
                         <span>にゃんこ大戦争攻略</span>
                     </a>
                 </li>
                 <li>
-                    <span th:text="${characterRarity + '一覧'}"></span>
+                    <span th:text="${'「' + word + '」の検索結果'}"></span>
                 </li>
             </ul>
         </div>
-    	<div class="l-3co1">
-        	<div class="l-3co1Main">
-            	<div class="l-3co1Main_center l-3co1Main_center-shadow">
-                	<div class="archiveHeader">
-                    	<h1 class="archiveHeader_title">【にゃんこ大戦争攻略】<span th:text="${characterRarity}"></span>一覧</h1>
-                    	<div class="archiveHeader_author">
-                        	<i class="fa-solid fa-pencil" style="margin-right: 5px;"></i>
-                        	<span itemprop="author">RKNHB</span>
-                    	</div>
-                    	<div class="archiveHeader_info">
-                        	<div class="archiveHeader_date">
-                            	<i class="fa-regular fa-clock" style="margin-right: 5px;"></i>
-                            	<span th:text="${'最終更新日 : ' + #dates.format(date, 'yyyy.MM.dd HH:mm')}"></span>
-                        	</div>
-                    	</div>
-                	</div>
-                	<div class="archive-style-wrapper">
-                    	<h2 class="a-header-2"><span th:text="${characterRarity}"></span>一覧</h2>
-                    	<div class="container">
-							<div class="row row-cols-3" th:each="type : ${charaTypes}">
-								<div class="col" th:each="character : ${type.characters}">
-									<a th:href="@{/admin/character/detail/{id}(id=${character.id})}" class="a-link">
-										<img th:src="@{/images/character_images/{image}(image=${character.image})}" class="a-img lazy lazy-non-square lazy-loaded" th:alt="${character.name} + 'の画像'" width="60" style="height: 0; padding-bottom: calc(60px*46/60); padding-bottom: calc(min(100%,60px)*46/60);" data-loaded="true"><span th:text="${character.name}"></span>
-									</a>
-								</div>
-								<th:block th:if="${#lists.size(type.characters) != 3}" th:each="j : ${#numbers.sequence(1, 3 - #lists.size(type.characters))}">
-									<div class="col"><br>/</div>
-								</th:block>
-							</div>
-						</div>
-                	</div>
-            	</div>
-        	</div>
-    	</div>
+        <div class="l-3co1">
+            <div class="l-3co1Main">
+                <div class="l-3co1Main_center l-3co1Main_center-shadow">
+                    <div class="g-searchContainer">
+                        <form class="g-search" th:action="@{/admin/character/search}" accept-charset="UTF-8" method="get">
+                            <input type="text" name="q" id="q" value class="g-input g-input-text g-input-border g-search_input" placeholder="Search" th:value="${word}">
+                            <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <div class="archiveHeader">
+                        <h1 class="archiveHeader_title"><span th:text="${'「' + word + '」の検索結果'}"></span></h1>
+                    </div>
+                    <ul class="archiveSearchList">
+                        <div class="archiveSearchList_top_ad" id="afscontainer1" style="height: auto;"></div>
+                        <li class="archiveSearchListItem" th:each="character : ${characters}">
+							<a class="archiveSearchListItem_link" th:href="@{/admin/character/detail/{id}(id=${character.id})}">
+								<p class="archiveSearchListItem_title"><span th:text="${character.name + 'の評価と使い道'}"></span></p>
+								<p class="archiveSearchListItem_description">
+									<span th:text="${'にゃんこ大戦争における、' + character.name + 'の評価と使い道を掲載しています。' + character.name + 'のステータスや特性、進化前・進化後のキャラなど、あらゆる情報を掲載しています。'}"></span>
+                                </p>
+                                <p class="archiveSearchListItem_date"><span th:text="${#dates.format(character.updatedAt, 'yyyy.MM.dd HH:mm')}"></span></p>
+                            </a>
+                        </li>
+                        <div class="archiveSearchList_bottom-ad" id="afscontainer2"></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </body>
 </html>
