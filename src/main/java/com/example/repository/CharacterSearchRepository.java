@@ -28,7 +28,7 @@ public class CharacterSearchRepository {
 	
 	public List<CharacterEntity> search(String word) {
 		return entityManager
-				.createNativeQuery("SELECT * FROM characters WHERE name like :word ORDER BY id ASC", CharacterEntity.class)
+				.createNativeQuery("SELECT * FROM characters WHERE name like :word OR commentary1 like :word OR commentary2 like :word ORDER BY id ASC", CharacterEntity.class)
 				.setParameter("word", "%" + word + "%")
 				.getResultList();
 	}

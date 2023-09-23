@@ -62,8 +62,6 @@ public class CharacterController {
 	
 	@RequestMapping(value = "/admin/character/create", method = RequestMethod.GET)
 	public String create(Model model) {
-		model.addAttribute("title", "create");
-		model.addAttribute("message", "新規追加");
 		model.addAttribute("raritys", Rarities.list);
 		return "admin/character/create";
 	}

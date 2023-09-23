@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-html, body, div, span, h1, h2, h3, h4, p, a, img, b, i, ul, li, form, table, tbody, tr, th, td, header, time {
+html, body, div, span, h1, h2, h3, h4, p, a, img, b, i, ul, li, form, label, table, tbody, tr, th, td, details, header, summary, time {
     margin: 0;
     padding: 0;
     border: 0;
@@ -19,7 +19,7 @@ body {
     font-size: 1.4rem;
 }
 
-body, button, input {
+body, button, input, textarea {
     font-family: "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans CJK JP", "Original Yu Gothic", YuGothic, "Yu Gothic", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Sans Emoji", -apple-system, BlinkMacSystemFont, system-ui;
 }
 
@@ -160,7 +160,6 @@ a img {
     width: 300px;
 }
 
-/*application...64fb.css:58*/
 .g-search {
     display: flex;
     box-sizing: border-box;
@@ -168,7 +167,6 @@ a img {
     width: 100%;
 }
 
-/*application...64fb.css:58*/
 .g-input {
     font-size: 1.4rem;
     line-height: 2rem;
@@ -179,12 +177,10 @@ a img {
     -webkit-appearance: none;
 }
 
-/*application...64fb.css:58*/
 .g-input-border {
     border: 2px solid #37474f;
 }
 
-/*application...64fb.css:58*/
 .g-input-text {
     padding: 9px 4px 8px 9px;
     height: 45px;
@@ -716,8 +712,14 @@ th, td {
 }
 
 .g-btn-blue {
-    color: #808080;
+    color: #a9a9a9;
     background-color: #ff6347;
+}
+
+.g-btn-mail {
+    color: #fff;
+    background-color: #c03b2c;
+    position: relative;
 }
 
 .g-btn-block {
@@ -779,6 +781,47 @@ th, td {
 .archiveSearchList_bottom-ad {
     padding: 0 10px;
     margin: -5px 0 0;
+}
+
+.sessions_btns {
+    margin: 0 0 60px;
+}
+
+.registration_page {
+    margin: 20px 0;
+    clear: both;
+}
+
+.registration_page summary {
+    list-style: none;
+}
+
+:root .fa-rotate-90 {
+    filter: none;
+}
+
+.g-btn-mail i {
+    color: #fff;
+    position: absolute;
+    top: 13px;
+}
+
+.registrations_form {
+    font-size: 1.3rem;
+    line-height: 2.4rem;
+    padding: 10px 0;
+}
+
+.registrations_form_section {
+    margin: 0 0 20px;
+}
+
+.signBase_label {
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    margin: 0 0 8px;
+    display: block;
+    color: #006621;
 }
 
 .alert {

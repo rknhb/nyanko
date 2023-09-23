@@ -1,42 +1,124 @@
 <!DOCTYPE html>
 <html lang="ja" xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>編集画面</title>
-</head>
-<body>
-	<h1>※編集画面※</h1>
-
-	<form method="POST" action="/admin/character/update">
-		キャラクター名<input type="text" name="name" th:field="${character.name}">
-		<br>
-        コスト<input type="text" name="cost" th:field="${character.cost}">
-        <br>
-        ランク
-        <select name="rare">
-			<option
-		      th:each="rarity : ${raritys}"
-		      th:value="${rarity.key}"
-		      th:text="${rarity.value}"
-		      th:selected="${rarity.key == character.rare}">
-		    </option>
-		</select>
-		<span th:text="${character.rare}"></span>
-		<br>
-        解説1<textarea name="commentary1" th:field="${character.commentary1}"></textarea>
-        <br>
-        解説2<textarea name="commentary2" th:field="${character.commentary2}"></textarea>
-        <br>
-        攻撃頻度<input type="text" name="attack_frequency" th:field="${character.attack_frequency}">
-        <br>
-        再生産<input type="text" name="reproduction" th:field="${character.reproduction}"> 
-        <br>
-        ノックバック数<input type="text" name="knockback" th:field="${character.knockback}">
-        <br>
-		
-		<button type="submit">編集</button>
 	
-	 </form>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+	<title>にゃんこ大戦争攻略|編集</title>
+	<link rel="stylesheet" href="/css/style.css" th:href="@{/css/style.css}">
+	<script src="https://kit.fontawesome.com/5b69d558cb.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="registrations new-action signed-out device-pc">
+    <header class="header-1">
+        <div class="header_inner">
+            <div class="header-1_mypage" id="header-mypage">
+                <a href="javascript:document.myform.submit()">Logout</a>
+                <input type="hidden" />
+				</form>
+            </div>
+        </div>
+    </header>
+    <div class="gameHeader">
+        <div class="gameHeader_inner">
+            <div class="gameHeader_game">
+                <a class="gameHeader_game_inner" th:href="@{/admin}">
+                    <div class="gameHeader_gamelogo">
+                        <img th:src="@{/images/gameHeader_gamelogo.png}" alt="にゃんこ大戦争">
+                    </div>
+                    <p class="gameHeader_game_title">にゃんこ大戦争攻略</p>
+                </a>
+            </div>
+            <div class="gameHeader_search">
+                <form class="g-search" th:action="@{/admin/character/search}" accept-charset="UTF-8" method="get">
+                    <input type="text" name="q" id="q" class="g-input g-input-text g-input-border g-search_input" placeholder="Search">
+                    <button type="submit" class="g-btn g-search_submit g-search_submit-icon">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="top_container">
+        <div class="top-left top-shadow"></div>
+    </div>
+    <div class="gameNavText">
+        <div class="gameNavText_inner">
+            <ul class="gameNavText_list gameNavText_list-grow">
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/legend}">伝説レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/ultra}">超激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/super}">激レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/rare}">レア</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/ex}">EX</a>
+                </li>
+                <li class="gameNavText_list_item">
+                    <a class="gameNavText_list_item_link" th:href="@{/admin/character/normal}">基本キャラ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="content-1">
+        <div class="signBase">
+            <div class="signBase_header">
+                <p class="signBase_header_title">編集</p>
+            </div>
+            <ul class="sessions_btns">
+				<form class="new_character" th:action="@{/admin/character/update}" accept-charset="UTF-8" method="post">
+					<div class="registration_page">
+                        <details>
+                            <summary class="g-btn g-btn-mail g-btn-block g-btn-md g-btn-shadow">
+                                <i class="fa-solid fa-angle-right fa-rotate-90"></i>
+                            </summary>
+                            <div class="registrations_form">
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">キャラクター（20文字以内）</label>
+                                    <input class="signBase_inputForm" type="text" name="name" th:field="${character.name}">
+                                </div>
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">コスト</label>
+                                    <input class="signBase_inputForm" type="text" name="cost" th:field="${character.cost}">
+                                </div>
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">ランク</label>
+                                    <select class="signBase_inputForm" name="rare">
+                                        <option th:each="rarity : ${raritys}" th:value="${rarity.key}" th:text="${rarity.value}" th:selected="${rarity.key == character.rare}"></option>
+                                    </select>
+                                </div>
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">総合評価</label>
+                                    <textarea class="signBase_inputForm" name="commentary1" th:field="${character.commentary1}"></textarea>
+                                    <textarea class="signBase_inputForm signBase_inputForm-overlap" name="commentary2" th:field="${character.commentary2}"></textarea>
+                                </div>
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">攻撃頻度</label>
+                                    <input class="signBase_inputForm" type="text" name="attack_frequency" th:field="${character.attack_frequency}">
+                                </div>
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">再生産</label>
+                                    <input class="signBase_inputForm" name="reproduction" th:field="${character.reproduction}">
+                                </div>
+                                <div class="registrations_form_section">
+                                    <label class="signBase_label">KB</label>
+                                    <input class="signBase_inputForm" type="text" name="knockback" th:field="${character.knockback}">
+                                </div>
+                                <input type="submit" name="commit" value="編集" class="g-btn g-btn-blue g-btn-block g-btn-md g-btn-shadow">
+                        	</div>
+                        </details>
+                    </div>
+                </form>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
