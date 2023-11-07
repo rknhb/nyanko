@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.example.entity.User;
 import com.example.repository.UserRepository;
@@ -20,6 +22,10 @@ public class FormAuthenticationProvider implements AuthenticationProvider {
 	
 	@Autowired
 	private UserRepository repository;
+	
+	@Autowired
+	@Lazy
+	private PasswordEncoder passwordEncoder;
 	
 	@Override
 	public Authentication authenticate(Authentication auth) throws AuthenticationException {
@@ -36,6 +42,10 @@ public class FormAuthenticationProvider implements AuthenticationProvider {
 		User entity = repository.findByUsername(name);
 		if (entity == null) {
 			throw new AuthenticationCredentialsNotFoundException("ログイン情報が存在しません。");
+		}
+		
+		if (!passwordEncoder.matches(password, entity.getPassword())) {
+			throw new AuthenticationCredentialsNotFoundException("ログイン情報に不備があります。");
 		}
 		
 		return new UsernamePasswordAuthenticationToken(entity, password, entity.getAuthorities());
